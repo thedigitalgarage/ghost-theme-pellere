@@ -1,0 +1,50 @@
+{{!< default}}
+
+{{> header}}
+
+<div id="container">
+    <div class="main-wrapper">
+        <div class="inner-main-wrapper">
+
+            <aside class="right-column">
+                <div class="inner-aside">
+                    {{#author}}
+                        <section class="banner">
+                            {{#if profile_image}}
+                                <figure class="author-image_pellere">
+                                    <div style="background-image: url({{img_url profile_image}})"><span class="hidden_pellere">{{name}}'s Picture</span></div>
+                                </figure>
+                            {{/if}}
+                            <h1>{{name}}</h1>
+                            <ul>
+                                {{#if location}}<li><i class="fa fa-map-marker"></i><span>{{location}}</span></li>{{/if}}
+                                {{#if website}}<li><a href="{{website}}"><i class="fa fa-link"></i>{{website}}</a></li>{{/if}}
+                            </ul>
+                            {{#if bio}}<p class="description_pellere">{{bio}}</p>{{/if}}
+                            <a class="rss" href="{{url}}rss"><i class="fa fa-rss"></i>Subscribe</a>
+                            {{#if twitter}}
+                                <a class="social-icon_pellere" href="{{twitter_url}}"><i class="fa fa-twitter"><span class="hidden_pellere">{{twitter}}</span></i></a>
+                            {{/if}}
+                            {{#if facebook}}
+                                <a class="social-icon_pellere" href="{{facebook_url}}"><i class="fa fa-facebook"><span class="hidden_pellere">Follow me on Facebook</span></i></a>
+                            {{/if}}
+                            <span class="stats">
+                                {{plural ../pagination.total empty='No articles' singular='% Article' plural='% Articles'}}
+                            </span>
+                        </section>
+                    {{/author}}
+
+                </div>
+            </aside>
+
+            <div class="left-column">
+                <main role="main">
+                    {{> loop}}
+                </main>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{> footer}}
